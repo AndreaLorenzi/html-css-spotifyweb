@@ -3,12 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Black', sans-serif;
+    font-family: 'Gotham Light', sans-serif;
+    font-family: 'Gotham Thin', sans-serif;
+    font-family: 'Gotham XLight', sans-serif;
+    font-family: 'Gotham Book', sans-serif;
+    font-family: 'Gotham Ultra', sans-serif;
+}
 .conteiner{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
 
 }
-aside{
+.sidebar{
     width: 230px;
     height: calc(100vh - 5rem);
     background-color: black;
@@ -16,14 +26,25 @@ aside{
 .nav-bar{
     width: calc(100% - 230px);
     height: 5rem;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.3);
     position: fixed;
     top: 0;
     right: 0;
     z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.btn-upgrade{
+    color: white;
+    padding: 1rem;
+    border-radius: 30px;
+    border-color: white;
+    background-color: black;
+    margin-right: 10px;
 }
 
-.green{
+.main-content{
     width: calc(100% - 230px);
     height: calc(100vh - 5rem) ;
     background-color: green;
