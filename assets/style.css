@@ -1,61 +1,326 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    font-family: 'Gotham', sans-serif;
-    font-family: 'Gotham Black', sans-serif;
-    font-family: 'Gotham Light', sans-serif;
-    font-family: 'Gotham Thin', sans-serif;
-    font-family: 'Gotham XLight', sans-serif;
-    font-family: 'Gotham Book', sans-serif;
-    font-family: 'Gotham Ultra', sans-serif;
-}
-.conteiner{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+:root {
+	--width-sidebar: 50px;
+	--height-overlay-upgrade: 90px;
+	--height-player: 90px;
 
-}
-.sidebar{
-    width: 230px;
-    height: calc(100vh - 5rem);
-    background-color: black;
-}
-.nav-bar{
-    width: calc(100% - 230px);
-    height: 5rem;
-    background-color: rgba(255, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.btn-upgrade{
-    color: white;
-    padding: 1rem;
-    border-radius: 30px;
-    border-color: white;
-    background-color: black;
-    margin-right: 10px;
+	--color-light: #fff
 }
 
-.main-content{
-    width: calc(100% - 230px);
-    height: calc(100vh - 5rem) ;
-    background-color: green;
-    overflow-y: scroll;
-    padding-top: 5rem;
+@media (min-width: 600px) {
+	:root {
+		--width-sidebar: 230px;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "gotham",sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	height: 100vh;
+}
+
+.sidebar {
+	background-color: black;
+}
+
+.main-content {
+	background-color: #141922;
+}
+
+.main-content .content {
+	margin-top: var(--height-overlay-upgrade);
+	padding: 1rem;
+}
+
+.player {
+	background-color: rgb(60, 60, 60);
+	z-index: 9;
+}
+
+.overlay-upgrade {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+
+	height: var(--height-overlay-upgrade);
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 5;
+}
+
+.sidebar {
+	overflow: hidden;
+	z-index: 7;
+}
+
+.main-content {
+	overflow-y: auto;
+}
+
+
+/*Layout*/
+
+.sidebar,
+.main-content {
+	position: fixed;
+	top: 0;
+	bottom: var(--height-player);
+}
+
+.sidebar {
+	left: 0;
+	width: var(--width-sidebar);
+}
+
+.main-content {
+	right: 0;
+	left: var(--width-sidebar);
+}
+
+.player {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: var(--height-player);
+}
+.title-playlist{
+	color: white;
+}
+
+
+/* End layout*/
+
+
+/* nav in main-area */
+.main-content nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+}
+
+.main-content nav li {
+	padding: 1rem 1.5rem;
+	position: relative;
+}
+
+.main-content nav li.active::after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 35%;
+	bottom: 0;
+	left: 35%;
+	height: 5px;
+	background-color: greenyellow;
+}
+
+.main-content nav a {
+	color: var(--color-light);
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.main-content nav a:hover {
+	text-decoration: underline;
+}
+
+/* main-content area */
+.main-content .grid {
+	--cols: 2;
+	--gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap);
+}
+
+.main-content h2{
+	color: white;
+}
+.card h2{
+	text-align: center;
+	padding-top: .5rem;
+}
+.card h3{
+	text-align: center;
+	font-size: 12px;
+}
+.main-content p {
+	color: rgb(60, 60, 60);
+}
+.main-content h3{
+	color: rgb(60, 60, 60);
+}
+.main-content .card	{
+	min-height: 200px;
+	flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+	
+}
+
+.main-content .card .image {
+	position: relative;
+}
+
+.main-content .card img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+
+.main-content .card .image:hover {
+	cursor: pointer;
+}
+
+.main-content .card .image:hover::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-color: black;
+	opacity: 0.5;
+}
+
+.main-content .card .image:hover::after {
+	content: '';
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	inset: 0;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='white'%3E%3C!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z'/%3E%3C/svg%3E");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30%;
+}
+
+@media (min-width: 700px) {
+	.main-content .grid {
+		--cols: 4;
+	}
 
 }
-.bottom{
-    background-color: grey;
-    width: 100%;
-    height: 5rem;
-    position: fixed;
-    bottom: 0;
+
+@media (min-width: 1100px) {
+	.main-content .grid {
+		--cols: 6;
+	}
+
+}
+
+/* sidebar */
+.sidebar nav {
+	height: 100%;
+	white-space: nowrap;
+}
+
+.sidebar a {
+	color: var(--color-light);
+}
+
+.sidebar ul {
+	list-style: none;
+}
+
+.sidebar .list-level1 {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.sidebar .playlist {
+	margin-bottom: 2rem;
+}
+
+.sidebar .spaced {
+	margin-top: auto;
+}
+
+.sidebar .logo {
+	padding: 1.5rem;
+}
+
+.sidebar .item-link {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .5rem 1.5rem;
+
+	opacity: 0.6;
+}
+
+.sidebar .item-link .icon {
+	width: 35px;
+}
+
+.sidebar .logo-small {
+	display: none;
+}
+
+.sidebar .user .item-link {
+	opacity: 1;
+}
+
+.sidebar .user .icon {
+	background-color: grey;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	border-radius: 35px;
+}
+
+.sidebar .playlist {
+	padding: .5rem 1.5rem;
+}
+
+.sidebar .playlist .playlist-action {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+
+.sidebar .playlist .playlist-action .icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 35px;
+	height: 35px;
+	background-color: grey;
+	flex-shrink: 0;
+	font-size: 25px;
+}
+
+
+@media (max-width: 600px) {
+	.sidebar .logo-small {
+		display: block;
+	}
+
+	.sidebar .logo-big,
+	.sidebar .item-menu .text,
+	.sidebar .playlist {
+		display: none;
+	}
+
+	.sidebar .logo {
+		padding: 5px;
+		width: 100%;
+	}
+
+	.sidebar .item-link {
+		padding: 10px;
+	}
+
+	.sidebar .item-link .icon {
+		width: 100%;
+	}
 }

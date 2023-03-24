@@ -7,33 +7,178 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
-
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>spotify</title>
 </head>
-<body>
-    <main>
-        <div class="conteiner">
-            <div class="sidebar"></div>
-            <div>
-                <div class="nav-bar">
-                    <button class="btn-upgrade"> EFFETTUA L'UPGRADE  </button>
-                </div>
-            </div>
-            <div class="main-content">
-                <div class=""></div>
-                <div class="grid">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </div>
-            <div class="bottom"></div>
-            
+<body class="container">
+	<header class="sidebar">
+		<nav>
+			<ul class="list-level1">
+				<li class="logo item-menu">
+					<a href="#!">
+						<img class="logo-big" src="img/logo.svg" alt="">
+						<img class="logo-small" src="img/logo-small.svg" alt="">
+					</a>
+				</li>
 
-        </div>
-    </main>
+				<li class="item-menu">
+					<a class="item-link" href="#!">
+						<img class="icon" src="img/home.svg" alt="">
+						<div class="text">Home</div>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a class="item-link" href="#!">
+						<img class="icon" src="img/search.svg" alt="">
+						<div class="text">Cerca</div>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a class="item-link" href="#!">
+						<img class="icon" src="img/libreria.svg" alt="">
+						<div class="text">La tua libreria</div>
+					</a>
+				</li>
+
+				<li class="playlist item-menu">
+					<h2 class="title-playlist">
+						Playlist
+					</h2>
+					<a class="playlist-action" href="#!">
+						<div class="icon"><i class="fa-solid fa-plus"></i></div>
+						<div class="text">Crea Playlist</div>
+					</a>
+					<ul>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+						<li class="item-playlist"><a href="#!">Nome Playlist</a></li>
+					</ul>
+				</li>
+
+				<li class="install item-menu spaced">
+					<a class="item-link" href="#!">
+						<div class="text">Install App</div>
+					</a>
+				</li>
+				<li class="user item-menu">
+					<a class="item-link" href="#!">
+						<img class="icon" src="img/profile.svg" alt="">
+						<div class="text">John Doe</div>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="main-content">
+		<div class="content">
+			<nav>
+				<ul>
+					<li >
+						<a href="">IN EVIDENZA</a>
+					</li>
+					<li><a href="">PODCAST</a></li>
+					<li class="active"><a href="">CLASSIFICHE</a></li>
+					<li><a href="">GENERI E MOOD</a></li>
+					<li><a href="">NUOVE USCITE</a></li>
+					<li><a href="">SCOPRI</a></li>
+				</ul>
+			</nav>
+
+			<section class="recent">
+				<h2 style="padding-bottom: .5rem;">Recently played</h2>
+				<div class="grid">
+					<div class="card">
+						<div class="image">
+							<img src="img/metal_lifting.jpg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">Heavy Metal</h2>
+						<h3 style="padding-bottom: .5rem;">Subtitle</h3>
+					</div>
+					<div class="card">
+                        <div class="image">
+                            <img src="img/stranger.jpeg" alt="">
+                        </div>
+                        <h2 style="padding-bottom: .5rem;">Stranger Things, Vol.1(a Netflix Original series Soundtrack)</h2>
+						<h3 style="padding-bottom: .5rem;">Kyle Dixon & Micheal Stein</h3>
+                    </div>
+					<div class="card">
+                        <div class="image">
+							<img src="img/aquietplace.jpeg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">A quite place</h2>
+						<h3 style="padding-bottom: .5rem;">Subtitle</h3>
+                    </div>
+					<div class="card">
+                        <div class="image">
+							<img src="img/split.jpeg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">Splite</h2>
+						<h3 style="padding-bottom: .5rem;">Subtitle</h3>
+                    </div>
+					<div class="card">
+                        <div class="image">
+							<img src="img/cure.jpeg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">A cure for welness</h2>
+						<h3 style="padding-bottom: .5rem;">Subtitle</h3>
+                    </div>
+					<div class="card">
+                        <div class="image">
+							<img src="img/sinister.jpeg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">sinister</h2>
+						<h3 style="padding-bottom: .5rem;">Subtitle</h3>
+                    </div>
+				</div>
+			</section>
+
+			<section class="created">
+				<h2 style="padding-bottom: .5rem;">Creato per John Doe</h2>
+				<p style="padding-bottom: .5rem;">Più ascolti, più accurati saranno i suggerimenti.</p>
+				<div class="grid">
+					<div class="card">
+                        <div class="image">
+							<img src="img/radar.jpeg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">Release Radar</h2>
+                    </div>
+					<div class="card">
+                        <div class="image">
+							<img src="img/mixdaily.jpeg" alt="">
+						</div>
+						<h2 style="padding-bottom: .5rem;">Daily Mix 1</h2>
+                    </div>
+				</div>
+			</section>
+
+			<section class="artists">
+				<h2 style="padding-bottom: .5rem;">Artisti più popolari</h2>
+				<p style="padding-bottom: .5rem;">Più ascolti, più accurati saranno i suggerimenti.</p>
+				<div class="grid">
+					<div class="card">
+                        <div class="image">
+							<img src="img/youg.jpeg" alt="" style="border-radius:50%">
+						</div>
+                        <h2 style="padding-bottom: .5rem;">Lana del Rey</h2>
+                    </div>
+					<div class="card">
+                        <div class="image">
+							<img src="img/einaudi.jpeg" alt="" style="border-radius:50%">
+						</div>
+                        <h2 style="padding-bottom: .5rem;">Ludovico Einaudi</h2>
+                    </div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<footer class="player"></footer>
+
+	<div class="overlay-upgrade"></div>
 </body>
 </html>
