@@ -2,8 +2,13 @@
 	--width-sidebar: 50px;
 	--height-overlay-upgrade: 90px;
 	--height-player: 90px;
-
 	--color-light: white;
+	--xblack: rgba(0, 0, 0, 0.3);
+    --drkgrey: #282828;
+    --litgrey: #a3a3a3;
+    --mediumgrey: #5A5A5A;
+    --night: #141922;
+    --green: #adff2f;
 }
 
 @media (min-width: 600px) {
@@ -334,7 +339,7 @@ a {
 	justify-content: flex-end;
 	align-items: center;
 	padding-top: 30px;
-	padding-right:10px;
+	padding-right:20px;
 }
 .btn-upgrade{
 	padding: 10px;
@@ -345,4 +350,155 @@ a {
 }
 .btn-upgrade:hover{
 	cursor: pointer;
+	transform: scale(1.2);
+}
+/* player */
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-inline: 1rem;
+}
+
+.player .left {
+    display: flex;
+    align-items: center;
+    color: var(--mediumgrey);
+    gap: 1rem;
+}
+
+.player .left img {
+    width: 45px;
+    aspect-ratio: 1 / 1;
+}
+
+.player .hover:hover {
+    color: var(--green);
+}
+
+.player .middle,
+.player .right {
+    color: white;
+    --time-h: 6px;
+}
+
+.player .left,
+.player .right {
+    flex: 0 0 25%;
+}
+
+.player .middle {
+    flex: 0 0 50%;
+}
+
+.player .media-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    gap: 2rem;
+}
+
+.player .media-controls .big {
+    font-size: 30px;
+}
+
+.player .time-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player .timeline {
+    --time: 25%;
+
+    height: var(--time-h);
+    width: 100%;
+    background-color: var(--mediumgrey);
+    border-radius: calc(var(--time-h) / 2);
+    position: relative;
+}
+
+.player .timeline::before {
+    content: "";
+    position: absolute;
+    border-radius: calc(var(--time-h) / 2);
+    left: 0;
+    width: var(--time);
+    height: var(--time-h);
+    background-color: var(--litgrey);
+}
+
+.player .timeline::after{
+    content: "";
+    position: absolute;
+    border-radius: calc(var(--time-h) / 2);
+    left: calc(var(--time) - var(--time-h));
+    bottom: -50%;
+    width: calc(var(--time-h) * 2);
+    height: calc(var(--time-h) * 2);
+    border-radius: var(--time-h);
+    background-color: white;
+    opacity: 0%;
+}
+
+.player .timeline:hover::before {
+    background-color: var(--green);
+    cursor: pointer;
+}
+
+.player .timeline:hover::after {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.player .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.player .volume {
+    --volume: 75%;
+
+    height: var(--time-h);
+    width: 40%;
+    background-color: var(--mediumgrey);
+    border-radius: calc(var(--time-h) / 2);
+    position: relative;
+}
+
+.player .volume::before {
+    content: "";
+    position: absolute;
+    border-radius: calc(var(--time-h) / 2);
+    left: 0;
+    width: var(--volume);
+    height: var(--time-h);
+    background-color: var(--litgrey);
+}
+
+.player .volume::after{
+    content: "";
+    position: absolute;
+    border-radius: calc(var(--time-h) / 2);
+    left: calc(var(--volume) - var(--time-h));
+    bottom: -50%;
+    width: calc(var(--time-h) * 2);
+    height: calc(var(--time-h) * 2);
+    border-radius: var(--time-h);
+    background-color: white;
+    opacity: 0%;
+}
+
+.player .volume:hover::before {
+    background-color: var(--green);
+    cursor: pointer;
+}
+
+.player .volume:hover::after {
+    opacity: 100%;
+    cursor: pointer;
 }
